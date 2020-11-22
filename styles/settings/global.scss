@@ -1,0 +1,63 @@
+@import "./colors.scss";
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Rubik";
+      color: $light-grey;
+      font-size: 14px;
+}
+
+h1 {
+      font-size: 32px;
+      font-weight: bold;
+      color: $white;
+}
+
+h2 {
+      font-size: 24px;
+      color: $white;
+}
+
+h3 {
+      font-size: 18px;
+      color: $white;
+}
+
+section {
+      padding: 6rem 5vw;
+}
+
+@media screen and (min-width: 700px) {
+      p {
+            font-size: 18px;
+      }
+
+      h1 {
+            font-size: 48px;
+      }
+
+      h2 {
+            font-size: 32px
+      }
+
+      h3 {
+            font-size: 24px;
+      }
+}
+
+@media screen and (min-width: 1200px) {
+      h1 {
+            font-size: 72px;
+      }
+
+      h2 {
+            font-size: 48px
+      }
+
+      h3 {
+            font-size: 32px
+      }
+}

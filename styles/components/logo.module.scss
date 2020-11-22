@@ -1,0 +1,10 @@
+.Logo {
+      width: 112px;
+      cursor: pointer;
+}
+
+@media screen and (min-width: 700px) {
+      .Logo {
+            width: 222px;
+      }
+}

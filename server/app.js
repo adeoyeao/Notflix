@@ -21,22 +21,25 @@ nextApp.prepare()
       const app = express()
 
       const allowAccess = (req, res, next) => {
-            if(req.isAuthenticated) {
-                  res.redirect("/home")
-                  next()
+            if(req.isAuthenticated()) {
+                  res.redirect("/browse")
             }
+            next()
       }
 
       const restrictAccess = (req, res, next) => {
-            if(!req.isAuthenticated) {
+            if(!req.isAuthenticated()) {
                   res.redirect("/")
-                  next()
             }
+            next()
       }
 
+      app.use(require("./routes/authentication"))
+      // app.use(require("./routes/films"))
+ 
       app.use(/^\/$/, allowAccess)
-      app.use("/home", restrictAccess)
-            
+      app.use("/browse", restrictAccess)
+
       app.get("*", (req, res) => {
             return handle(req, res)
       })

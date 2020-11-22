@@ -1,0 +1,46 @@
+@import "../settings/colors.scss";
+.Feature {
+      background: $black;
+      padding: 6rem 5vw;
+      border-top: 0.75rem solid $dark-grey;
+      display: grid;
+      grid-gap: 2.5rem;
+      text-align: center;
+
+      div {
+            display: grid;
+            grid-gap: 1.5rem;
+      }
+
+      img { 
+            width: 100%;
+      }
+}
+
+@media screen and (min-width: 1200px) {
+      .Feature {
+            text-align: left
+      }
+      
+      .Feature___left {
+            display: grid;
+            grid-template-columns: 7fr 5fr;
+            align-items: center;
+      }
+
+      .Feature___right {
+            display: grid;
+            grid-template-columns: 5fr 7fr;
+            align-items: center;
+
+            img {
+                  grid-column: 1/2;
+                  grid-row: 1/2,
+            }
+
+            div {
+                  grid-column: 2/3;
+                  grid-row: 1/2;
+            }
+      }
+}

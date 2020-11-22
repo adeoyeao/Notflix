@@ -1,0 +1,119 @@
+@import "../settings/colors.scss";
+
+.Login {
+      padding: 2rem;
+      display: grid;
+      grid-gap: 3rem;
+      background: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      max-width: 750px;
+      border-radius: 0.5rem;
+
+      .Login_inputContainer {
+            display: grid;
+            grid-gap: 1rem;
+
+            input {
+                  padding: 1rem;
+                  background: $dark-grey;
+                  color: white;
+                  outline: none;
+                  border: none;
+                  appearance: none;
+                  border-radius: 0.5rem;
+                  font-size: 14px;
+                  &::placeholder {
+                        color: $light-grey
+                  }
+            }
+      }
+
+      .Login_submitBtn {
+            background: $netflix-red;
+            padding: 1rem;
+            font-size: 14px;
+            outline: none;
+            border: 2px solid transparent;
+            appearance: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+
+            &:hover {
+                  border: 2px solid $netflix-red;
+                  background: transparent;
+            }
+      }
+
+      .Login_socialBtns {
+            display: flex;
+            flex-direction: row;
+            grid-gap: 1rem;
+            justify-content: center;
+            align-items: center;
+
+            span {
+                  border-radius: 50%;
+                  display: block;
+                  width: 8px;
+                  height: 8px;
+                  background: $light-grey
+            }
+
+            .Login_socialBtn___facebook {
+                  background: #3b5998
+            }
+
+            .Login_socialBtn___google {
+                  background: #de5246
+            }
+
+            .Login_socialBtn___facebook,
+            .Login_socialBtn___google {
+                  width: 1.5rem;
+                  height: 1.5rem;
+                  border-radius: 0.5rem;
+            }
+      }
+      .Login_socialBtns p {
+            display: none;
+            &:hover {
+                  color: $netflix-red
+            }
+      }
+
+      a {
+            text-align: center;
+            text-decoration: none;
+            &:hover {
+                  color: $netflix-red
+            }
+      }
+}
+
+@media screen and (min-width: 700px) {
+      .Login {
+            padding: 4rem;
+
+            .Login_inputContainer {
+                  input {
+                        padding: 2rem;
+                        font-size: 20px;
+                  }
+            }
+
+            .Login_submitBtn {
+                  padding: 2rem;
+                  font-size: 20px;
+            }
+      }
+
+      .Login_socialBtns img {
+            display: none;
+      }
+
+      .Login_socialBtns p {
+            display: unset !important;
+            cursor: pointer;
+      }
+}
+

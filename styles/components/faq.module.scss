@@ -1,0 +1,29 @@
+@import "../settings/colors.scss";
+
+.FAQ {
+      border: 2px solid $dark-grey;
+      display: grid;
+      grid-gap: 0.25rem;
+
+      .FAQ_question {
+            padding: 1rem;
+            background: $dark-grey;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+
+            button {
+                  width: 1rem;
+                  height: 1rem;
+                  cursor: pointer;
+            }
+      }
+
+      .FAQ_answer {
+            padding: 1rem;
+            background: $dark-grey;
+            h2 {
+                  font-weight: normal !important;
+            }
+      }
+}
