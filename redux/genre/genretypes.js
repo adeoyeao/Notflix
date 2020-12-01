@@ -1,0 +1,3 @@
+const EXCLUDE_GENRE = "EXCLUDE_GENRE"
+
+export { EXCLUDE_GENRE }

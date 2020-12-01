@@ -35,7 +35,7 @@ nextApp.prepare()
       }
 
       app.use(require("./routes/authentication"))
-      // app.use(require("./routes/films"))
+      app.use(require("./routes/films"))
  
       app.use(/^\/$/, allowAccess)
       app.use("/browse", restrictAccess)

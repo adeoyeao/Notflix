@@ -1,0 +1,34 @@
+@import "../settings/colors.scss";
+
+.Genre {
+      padding: 0 -5vw;
+      width: 100%;
+      h2 {
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+      }
+      .Genre_cards {
+            width: calc(100vw - 10vw);
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: repeat(10, minmax(240px, 1fr));
+            overflow-x: scroll;
+            padding: 16px 0;
+            -ms-overflow-style: none;
+            &::-webkit-scrollbar {
+                  height: 1.5rem;
+                  cursor: grab;
+            }
+            &::-webkit-scrollbar-button {
+                  display: none;
+            }
+            &::-webkit-scrollbar-thumb {
+                  background: $netflix-red;
+                  border-radius: 2rem;
+            }
+            &::-webkit-scrollbar-track {
+                  background: $light-grey;
+                  border-radius: 2rem;
+            }
+      }
+}

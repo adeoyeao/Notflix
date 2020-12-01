@@ -1,0 +1,16 @@
+@import "../settings/colors.scss";
+
+.Card {
+      border-radius: 1rem;
+      width: 240px;
+      height: 120px;
+      background: $netflix-red;
+      transition: transform 0.5s ease-in-out;
+      cursor: pointer;
+      z-index: 3;
+
+      &:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 7px 4px rgba(210, 210, 210, 0.3)
+      }
+}
