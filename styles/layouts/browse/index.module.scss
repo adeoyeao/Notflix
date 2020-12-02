@@ -2,9 +2,9 @@
 
 .Featured {
       height: 100vh;
-      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(112,112,112,1) 100%);
-      background-blend-mode: overlay;
       display: none;
+      background-color: rgba(112, 112, 112, 0.6);
+      background-blend-mode: overlay;
 
       h1 {
             color: black !important;
@@ -19,6 +19,18 @@
 
 @media screen and (min-width: 1200px) {
       .Featured {
-            display: block !important;
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+
+            h1 {
+                  color: white !important;
+            }
+
+            .Featured_overview {
+                  margin: 1rem 0;
+                  width: 75%;
+                  color: $white;
+            }
       }
 }

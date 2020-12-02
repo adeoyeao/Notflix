@@ -1,16 +1,18 @@
 import Card from "./Card"
 import styles from "../styles/components/genre.module.scss"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { requestFailure, requestLoading, requestSuccess} from "../redux/actions"
 
 const Genre = (props) => {
-      const { loading, data, error } = useSelector(state => state.card[props.genre])
+      const { loading, data, videos, error } = useSelector(state => state.card[props.genre])
       const all = useSelector(state => state.card)
       const dispatch = useDispatch()
 
+      const [id, setId ] = useState([])
+
       const getFilms = () => {
-            requestLoading(props.genre)
+            dispatch(requestLoading(props.genre))
             fetch("/films", {
                   method: "POST",
                   headers: {
@@ -20,7 +22,8 @@ const Genre = (props) => {
             })
             .then(res => res.json())
             .then(data => {
-                  dispatch(requestSuccess(props.genre, data.films.splice(0, 10)))
+                  dispatch(requestSuccess(props.genre, data.films.splice(0, 10), data.videoData.splice(0, 10)))
+                  setId(data.videoId.splice(0, 10))
             })
             .catch(err => {
                   console.error(err)
@@ -36,8 +39,8 @@ const Genre = (props) => {
             <article className={styles.Genre}>
                   <h2>{props.genre}</h2>
                   <div className={styles.Genre_cards}>
-                        { data.map(x => (
-                              <Card title={x.title}/>
+                        { data.map((x, idx) => (
+                              <Card title={x.title} thumbnail={videos[idx].thumbnail_url} id={id[idx]} key={id[idx]}/>
                         )) }
                   </div>
             </article>
