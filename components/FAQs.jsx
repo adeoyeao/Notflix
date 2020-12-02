@@ -1,5 +1,5 @@
 import FAQ from "./FAQ"
-import styles from "../styles/components/FAQS.module.scss"
+import styles from "../styles/components/faqs.module.scss"
 import { useState } from "react"
 
 const FAQS = () => {
