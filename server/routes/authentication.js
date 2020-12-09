@@ -37,7 +37,7 @@ passport.deserializeUser((id, done) => {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:5000/auth/google/login"
+    callbackURL: "https://notflix-02-12/auth/google/login"
   },
   function(accessToken, refreshToken, profile, cb) {
     userModel.findOrCreate({ googleId: profile.id }, function (err, user) {
@@ -49,7 +49,7 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: "http://localhost:5000/auth/facebook/login"
+    callbackURL: "https://notflix-02-12/auth/facebook/login"
   },
   function(accessToken, refreshToken, profile, cb) {
     userModel.findOrCreate({ facebookId: profile.id }, function (err, user) {
