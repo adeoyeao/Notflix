@@ -3,8 +3,34 @@ import styles from "../styles/components/genre.module.scss"
 import { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { requestFailure, requestLoading, requestSuccess} from "../redux/actions"
+import useSWR from "swr"
 
 const Genre = (props) => {
+
+      // const [ films, setFilms ] = useState([])
+      // const [ video, setVideo ] = useState([])
+      // const [ id, setId ] = useState([])
+
+      // const fetcher = async (...args) => {
+      //       const response = await fetch(...args, {
+      //             method: "POST",
+      //             headers: {
+      //                   "content-type": "application/json"
+      //             },
+      //             body: JSON.stringify({id: props.id})
+      //       })
+      //       return await response.json()
+      // }
+
+      // const { data: results } = useSWR("/films", fetcher)
+
+      // useEffect(() => {
+      //       results && (
+      //             setFilms(results.films.splice(0, 10)), 
+      //             setVideo(results.videoData.splice(0, 10)), 
+      //             setId(results.videoId.splice(0, 10))
+      //       )}, [results])
+
       const { loading, data, videos, error } = useSelector(state => state.card[props.genre])
       const all = useSelector(state => state.card)
       const dispatch = useDispatch()
@@ -33,7 +59,7 @@ const Genre = (props) => {
 
       useEffect(() => {
             getFilms()
-      }, [])
+      }, [data])
 
       return (
             <article className={styles.Genre}>

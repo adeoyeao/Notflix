@@ -17,10 +17,9 @@ router.get("/featured", async (req, res) => {
                   try {
                         const results = await fetch(`https://api.dailymotion.com/videos?page=1&limit=1&search=${trailer}`)
                         const data = await results.json()
-                        videoId.push(data.list[0].id)
+                        videoId.push(data.list[0].id || "x7wdjzb")
                   } catch(err) {
                         console.error(err)
-                        videoId.push("N/A")
                   }
             }
             return videoId
@@ -49,7 +48,7 @@ router.get("/featured", async (req, res) => {
 router.post("/films", async (req, res) => {
       const genreId = req.body.id
 
-      const data = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.TMDB_API_KEY}&language=en-US&sort_by=revenue.desc&include_adult=false&include_video=false&page=1&with_genres=${genreId}`)
+      const data = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=d257ffee7d012a278963dee940628275&language=en-US&sort_by=revenue.desc&include_adult=false&include_video=false&page=1&with_genres=${genreId}`)
       const films = await data.json()
       const search = await films.results.map(film => `${film.title} trailer`)
 
@@ -59,10 +58,9 @@ router.post("/films", async (req, res) => {
                   try {
                         const results = await fetch(`https://api.dailymotion.com/videos?page=1&limit=1&search=${trailer}`)
                         const data = await results.json()
-                        data.list[0].id ? videoId.push(data.list[0].id) : videoId.push("N/A")
+                        data.list[0].id ? videoId.push(data.list[0].id) : videoId.push("x7wdjzb")
                   } catch(err) {
-                        console.error(err)
-                        videoId.push("N/A")
+                        console.error(err, genreId)
                   }
             }   
             return videoId

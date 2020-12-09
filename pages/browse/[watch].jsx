@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import styles from "../../styles/layouts/browse/watch.module.scss"
+import Head from "next/head"
 
 const Watch = () => {
       const router = useRouter()
@@ -37,6 +38,9 @@ const Watch = () => {
 
       return (
             <main style={mainStyle} className={styles.Watch}>
+                  <Head>
+                        <title>Notflix</title>
+                  </Head>
                   { visible && <Link href="/browse"><a onMouseOver={handleMouseOver}>Back to Browse</a></Link> }
             <div style={{width: "100%"}}>
                   <iframe style={{width: "100%", height: "100%"}}

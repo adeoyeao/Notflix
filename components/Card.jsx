@@ -10,9 +10,9 @@ const Card = (props) => {
 
       return (
             <Link href={`/browse/${props.id}`}>
-                  <div className={styles.Card} style={cardStyle}>
+                  <a className={styles.Card} style={cardStyle}>
                         <p>{props.title}</p>
-                  </div>
+                  </a>
             </Link>
       )
 }

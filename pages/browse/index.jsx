@@ -6,16 +6,16 @@ import PlayButton from "../../components/PlayButton"
 import { useSelector } from "react-redux"
 import useSWR from "swr"
 import { useEffect, useState } from "react"
+import Head from "next/head"
 
 const Index = () => {
       // States
       const genres = useSelector(state => state.genre.genres)
-      const cards = useSelector(state => state.card)
 
       // Featured Page
       const [ featured, setFeatured ] = useState({})
       const [ video, setVideo ] = useState({})
-      const [ id, setId ] = useState()
+      const [ id, setId ] = useState([])
       const [ visible, setVisible ] = useState(false)
 
       const fetcher = async () => {
@@ -42,6 +42,9 @@ const Index = () => {
       return (
             <main>
                   <Header />
+                  <Head>
+                        <title>Notflix</title>
+                  </Head>
                   { visible && <Loader /> }
                   <section className={styles.Featured} style={featuredStyle}>
                         <h1>{ featured.title }</h1>
